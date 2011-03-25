@@ -1,0 +1,52 @@
+.die {
+	background-color: #eee;
+	width: 30px;
+	height: 30px;
+
+	cursor: pointer;
+
+	display: inline-block;
+
+	line-height: 30px;
+	text-align: center;
+
+	border: 1px solid black;
+	border-radius: 2px;
+
+	margin-right: 2px;
+}
+
+.die_locked {
+	background-color: #bbb;
+}
+
+.dice_container {
+	border: 1px solid black;
+	border-radius: 4px;
+
+	height: 60px;
+	padding: 2px;
+	margin-bottom: 4px;
+	text-align: center;
+}
+
+#body {
+	margin: 0 auto;
+	width: 960px;
+}
+
+#roll_button {
+	margin: 0 auto;
+	width: 200px;
+	height: 40px;
+	border: 1px solid black;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 2px;
+	cursor: pointer;
+	margin-bottom: 4px;
+}
+
+.button_hover {
+	background-color: #f3f3f3;
+}
