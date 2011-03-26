@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+		<script src="/game/script.js"></script>
+
+		<script type='text/javascript'>
+			$(function() {
+				$('#roll_button').hover(function() {
+					$(this).addClass('button_hover');
+				}, function() {
+					$(this).removeClass('button_hover');
+				});
+				$('#roll_button').click(lock_and_roll);
+			});
+		</script>
+
+		<link rel="stylesheet" type="text/css" href="/site_media/style.css" />
+		<title>Dice</title>
+	</head>
+	<body>
+		<div id='body'>
+			<div id='roll_button'>roll</div>
+			<div id='dice_locked_container' class='dice_container'>
+				<span>Locked Dice</span>
+				<div id='dice_locked'></div>
+			</div>
+			<div id='dice_unlocked_container' class='dice_container'>
+				<span>Unlocked Dice</span>
+				<div id='dice_unlocked'></div>
+			</div>
+			<div id='key'></div>
+		</div>
+	</body>
+</html>
