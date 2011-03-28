@@ -5,12 +5,13 @@
 
 		<script type='text/javascript'>
 			$(function() {
-				$('#roll_button').hover(function() {
+				$('.button').hover(function() {
 					$(this).addClass('button_hover');
 				}, function() {
 					$(this).removeClass('button_hover');
 				});
-				$('#roll_button').click(lock_and_roll);
+                $('#game_button').click(start_game);
+                $('#roll_button').click(lock_and_roll);
 			});
 		</script>
 
@@ -19,7 +20,8 @@
 	</head>
 	<body>
 		<div id='body'>
-			<div id='roll_button'>roll</div>
+			<div id='game_button' class='button'>new game</div>
+			<div id='roll_button' class='button'>roll</div>
 			<div id='dice_locked_container' class='dice_container'>
 				<span>Locked Dice</span>
 				<div id='dice_locked'></div>

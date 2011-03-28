@@ -1,27 +1,29 @@
+var game_guid = '';
+
+function start_game() {
+    $.ajax({
+        'url': '/game/start/',
+        'async': false,
+        'success': function(guid) {
+            game_guid = guid;
+        }
+    });
+}
+
 function roll() {
 	num = $('#dice_unlocked .die').size();
 	clear_unlocked_dice();
 
-	if (num == 0) {
-		num = 20;
-		clear_locked_dice();
-	}
+    url = '/game/'+game_guid+'/roll/'
+    if (num) { url += num+'/'; }
+    else { clear_locked_dice() }
 
-	data = {
-		"dice": []
-	};
-
-	for (var i=1; i<=num; i++) {
-		data['dice'].push(i);
-	}
-
-
-//	$.getJSON('roll.json', function(data) {
+	$.getJSON(url, function(data) {
 		$.each(data['dice'], function(i, die_data) {
 			die = create_die(die_data);
 			add_die(die);
 		});
-//	});
+	});
 }
 
 function lock() {

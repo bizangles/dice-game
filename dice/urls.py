@@ -7,14 +7,13 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^$', 'dice.game.views.play'),
+    (r'^game/', include('dice.game.urls')),
+
     (r'^site_media/(?P<path>.*)$', 'django.views.static.serve',
-        {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
+        { 'document_root': settings.MEDIA_ROOT }),
 )
 
 urlpatterns += patterns('',
-    (r'^roll/', include('dice.roll.urls')),
-    (r'^game/', include('dice.game.urls')),
-
     # Uncomment the admin/doc line below to enable admin documentation:
     # (r'^admin/doc/', include('django.contrib.admindocs.urls')),
 

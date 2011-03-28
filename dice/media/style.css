@@ -35,7 +35,7 @@
 	width: 960px;
 }
 
-#roll_button {
+.button {
 	margin: 0 auto;
 	width: 200px;
 	height: 40px;
