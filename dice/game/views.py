@@ -18,7 +18,12 @@ def start_game(request):
     return HttpResponse(game.guid)
 
 def roll(request, game_guid=None, num_dice=None):
-    (game_roll, new_roll) = models.Roll.objects.get_or_create(game_id=game_guid)
+    try:
+        game = models.Game.objects.get(guid=game_guid)
+    except models.Game.DoesNotExist:
+        raise Http404('Game does not exist')
+
+    (game_roll, new_roll) = models.Roll.objects.get_or_create(game=game)
 
     num_dice = int(num_dice) if num_dice else 3
     game_roll.roll(num_dice)

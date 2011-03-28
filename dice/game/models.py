@@ -33,6 +33,7 @@ class Roll(models.Model):
 
     def roll(self, num_dice):
         self.dice = [random.randint(1,6) for n in range(num_dice)]
+        self.save()
 
     def get_json(self):
         return json.dumps({'dice': self.dice, 'guid': self.guid})
