@@ -8,8 +8,13 @@ def play(request):
 
 def script(request):
     goals = models.Goal.objects.all();
+    actions = []
+    for goal in goals:
+        actions.append(goal.action)
+
     return render_to_response('game/script.js', {
             'goals': goals,
+            'actions': actions,
         },
         mimetype='text/javascript'
     )

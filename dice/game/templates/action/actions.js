@@ -1,4 +1,4 @@
-function goal(type) {
+function action(type) {
     this.type = type;
 }
 
@@ -7,8 +7,8 @@ function not_defined() {
     return false;
 }
 
-goal.prototype.is_purchasable = not_defined;
+action.do_action = not_defined;
 
-{% for goal in goals %}
-    {% include goal.template %}
+{% for action in actions %}
+    {% include action.template %}
 {% endfor %}

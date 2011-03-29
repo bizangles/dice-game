@@ -1,6 +1,6 @@
-var pair = new goal();
+var goal_pair = new goal();
 
-pair.is_purchasable = function(dice) {
+goal_pair.is_purchasable = function(dice) {
     purchasable = false;
     counts = {1:0,2:0,3:0,4:0,5:0,6:0};
     $.each(dice, function(i, die) {
@@ -13,4 +13,4 @@ pair.is_purchasable = function(dice) {
     return purchasable;
 }
 
-pair.action = {{ goal.action.name }}
+goal_pair.action = {{ goal.action.name }}
