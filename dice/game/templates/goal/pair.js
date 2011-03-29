@@ -12,3 +12,5 @@ pair.is_purchasable = function(dice) {
     });
     return purchasable;
 }
+
+pair.action = {{ goal.action.name }}

@@ -37,3 +37,20 @@ class Roll(models.Model):
 
     def get_json(self):
         return json.dumps({'dice': self.dice, 'guid': self.guid})
+
+
+class Goal(models.Model):
+    name = models.CharField(max_length=50)
+    template = models.CharField(max_length=50)
+    action = models.OneToOneField('Action', null=True, blank=True)
+
+    def __unicode__(self):
+        return "%s" % self.name
+
+
+class Action(models.Model):
+    name = models.CharField(max_length=50)
+    template = models.CharField(max_length=50)
+
+    def __unicode__(self):
+        return "%s" % self.name

@@ -7,4 +7,6 @@ goal.prototype.is_purchasable = function(dice) {
     return false;
 }
 
-{% include 'goal/pair.js' %}
+{% for goal in goals %}
+    {% include goal.template %}
+{% endfor %}

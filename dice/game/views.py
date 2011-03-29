@@ -7,7 +7,10 @@ def play(request):
     return render_to_response('game/index.html')
 
 def script(request):
-    return render_to_response('game/script.js',
+    goals = models.Goal.objects.all();
+    return render_to_response('game/script.js', {
+            'goals': goals,
+        },
         mimetype='text/javascript'
     )
 
