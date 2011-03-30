@@ -11,8 +11,7 @@ function start_game() {
 }
 
 {% include 'game/keys.js' %}
-
 {% include 'game/dice.js' %}
 
-{% include 'goal/goals.js' %}
 {% include 'action/actions.js' %}
+{% include 'goal/goals.js' %}

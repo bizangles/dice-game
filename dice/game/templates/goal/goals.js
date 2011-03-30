@@ -12,3 +12,7 @@ goal.prototype.is_purchasable = not_defined;
 {% for goal in goals %}
     {% include goal.template %}
 {% endfor %}
+
+function purchase_goal() {
+    $(this).appendTo('#actions_container');
+}

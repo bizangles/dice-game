@@ -50,3 +50,25 @@
 .button_hover {
 	background-color: #f3f3f3;
 }
+
+.goal_container {
+    margin-bottom: 4px;
+}
+
+.goal_container .goal {
+    border: 1px solid black;
+    margin-bottom: 2px;
+}
+
+.goal .goal_name, .goal .goal_action {
+    float: left;
+    padding: 0 2px;
+}
+
+.goal .goal_name {
+    border-right: 1px solid gray;
+}
+
+.clear {
+    clear: both;
+}

@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
 		<script src="/game/script.js"></script>
 
 		<script type='text/javascript'>
@@ -29,7 +29,20 @@
 			<div id='dice_unlocked_container' class='dice_container'>
 				<span>Unlocked Dice</span>
 				<div id='dice_unlocked'></div>
-			</div>
+            </div>
+            <div id='actions_container' class='goal_conatiner'>
+                <span>Actions</span>
+            </div>
+            <div id='goals_container' class='goal_container'>
+                <span>Goals</span>
+                {% for goal in goals %}
+                    <div id='{{ goal.get_div_id }}' class='goal' onclick='purchase_goal()'>
+                        <div class='goal_name'>{{goal.name}}</div>
+                        <div class='goal_action'>{{goal.action.name}}</div>
+                        <div class='clear'></div>
+                    </div>
+                {% endfor %}
+            </div>
 			<div id='key'></div>
 		</div>
 	</body>

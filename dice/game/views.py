@@ -4,7 +4,10 @@ from django.shortcuts import render_to_response
 from dice.game import models
 
 def play(request):
-    return render_to_response('game/index.html')
+    goals = models.Goal.objects.all();
+    return render_to_response('game/index.html', {
+        'goals': goals,
+    })
 
 def script(request):
     goals = models.Goal.objects.all();
