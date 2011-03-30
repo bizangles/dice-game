@@ -30,13 +30,13 @@
 				<span>Unlocked Dice</span>
 				<div id='dice_unlocked'></div>
             </div>
-            <div id='actions_container' class='goal_conatiner'>
+            <div id='actions_container' class='goal_container'>
                 <span>Actions</span>
             </div>
             <div id='goals_container' class='goal_container'>
                 <span>Goals</span>
                 {% for goal in goals %}
-                    <div id='{{ goal.get_div_id }}' class='goal' onclick='purchase_goal()'>
+                    <div id='{{ goal.name }}' class='goal' onclick='purchase_goal(this)'>
                         <div class='goal_name'>{{goal.name}}</div>
                         <div class='goal_action'>{{goal.action.name}}</div>
                         <div class='clear'></div>
