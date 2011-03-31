@@ -36,11 +36,12 @@
             <div id='goals_container' class='goal_container'>
                 <span>Goals</span>
                 {% for goal in goals %}
-                    <div id='{{ goal.name }}' class='goal' onclick='purchase_goal(this)'>
+                    <div id='{{ goal.name }}' class='goal'>
                         <div class='goal_name'>{{goal.name}}</div>
                         <div class='goal_action'>{{goal.action.name}}</div>
                         <div class='clear'></div>
                     </div>
+                    <script>$('#{{ goal.name }}').click(purchase_goal)</script>
                 {% endfor %}
             </div>
 			<div id='key'></div>

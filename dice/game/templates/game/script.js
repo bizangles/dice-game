@@ -10,6 +10,11 @@ function start_game() {
     });
 }
 
+function next_round() {
+    reset_actions();
+    reset_dice();
+}
+
 {% include 'game/keys.js' %}
 {% include 'game/dice.js' %}
 

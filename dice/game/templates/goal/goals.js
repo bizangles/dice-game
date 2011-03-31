@@ -17,9 +17,11 @@ goals = {};
     goals['{{goal.name}}'] = {{goal.name}};
 {% endfor %}
 
-function purchase_goal(goal_div) {
-    dice = get_all_dice();
+function purchase_goal() {
+    var goal_div = this;
+    var dice = get_all_dice();
     if (goals[goal_div.id].is_purchasable(dice)) {
-        $(goal_div).appendTo('#actions_container').click(function () {perform_action(this)});
+        $(goal_div).appendTo('#actions_container').unbind('click').click(perform_action);
+        next_round();
     }
 }

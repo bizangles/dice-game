@@ -72,3 +72,7 @@
 .clear {
     clear: both;
 }
+
+.action_used {
+    background-color: #ddffff;
+}

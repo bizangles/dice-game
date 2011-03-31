@@ -4,7 +4,7 @@ function roll() {
 
     url = '/game/'+game_guid+'/roll/'
     if (num) { url += num+'/'; }
-    else { clear_locked_dice() }
+    else { next_round(); }
 
     $.getJSON(url, function(data) {
         $.each(data['dice'], function(i, die_data) {
@@ -60,4 +60,9 @@ function get_all_dice() {
         dice.push($(this).html());
     });
     return dice;
+}
+
+function reset_dice() {
+    clear_unlocked_dice();
+    clear_locked_dice();
 }

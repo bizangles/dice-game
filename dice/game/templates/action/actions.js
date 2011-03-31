@@ -13,6 +13,14 @@ action.do_action = not_defined;
     {% include action.template %}
 {% endfor %}
 
-function perform_action(goal_div) {
-    goals[goal_div.id].action.do_action();
+function perform_action() {
+    var action_div = this;
+    if (!$(action_div).hasClass('action_used')) {
+        goals[action_div.id].action.do_action();
+        $(action_div).addClass('action_used');
+    }
+}
+
+function reset_actions() {
+    $('#actions_container .goal').removeClass('action_used');
 }
