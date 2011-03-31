@@ -12,3 +12,7 @@ action.do_action = not_defined;
 {% for action in actions %}
     {% include action.template %}
 {% endfor %}
+
+function perform_action(goal_div) {
+    goals[goal_div.id].action.do_action();
+}

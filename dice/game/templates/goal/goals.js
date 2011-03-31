@@ -20,6 +20,6 @@ goals = {};
 function purchase_goal(goal_div) {
     dice = get_all_dice();
     if (goals[goal_div.id].is_purchasable(dice)) {
-        $(goal_div).appendTo('#actions_container');
+        $(goal_div).appendTo('#actions_container').click(function () {perform_action(this)});
     }
 }

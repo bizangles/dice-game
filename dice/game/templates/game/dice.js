@@ -44,10 +44,10 @@ function add_die(die) {
     $('#dice_unlocked').append(die);
 }
 
-function add_dice(num_dice) {
-    for (var i=0;i<num_dice;i++) {
-        add_die(create_die('x'));
-    }
+function add_dice(dice) {
+    $.each(dice, function(i, die) {
+        add_die(create_die(die));
+    });
 }
 
 function toggle_unlocked_die() {
