@@ -46,6 +46,8 @@ USE_I18N = True
 # calendars according to the current locale
 USE_L10N = True
 
+# This is the root directory of the project.
+# Used for relative paths where absolute paths are asked for.
 SITE_ROOT = os.path.dirname(os.path.realpath(__file__))
 
 # Absolute filesystem path to the directory that will hold user-uploaded files.
@@ -86,6 +88,7 @@ TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(SITE_ROOT, 'templates'),
 )
 
 INSTALLED_APPS = (

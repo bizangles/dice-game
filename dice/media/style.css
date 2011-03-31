@@ -73,6 +73,10 @@
     clear: both;
 }
 
-.action_used {
-    background-color: #ddffff;
+.goal_container .action_used {
+    background-color: #ffdddd;
+}
+
+.goal_container .purchasable {
+    background-color: #ddffdd;
 }

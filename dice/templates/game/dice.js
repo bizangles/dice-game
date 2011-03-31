@@ -1,17 +1,23 @@
 function roll() {
     num = $('#dice_unlocked .die').size();
-    clear_unlocked_dice();
 
     url = '/game/'+game_guid+'/roll/'
     if (num) { url += num+'/'; }
     else { next_round(); }
 
     $.getJSON(url, function(data) {
+        clear_unlocked_dice();
         $.each(data['dice'], function(i, die_data) {
             die = create_die(die_data);
             add_die(die);
         });
     });
+
+    post_roll();
+}
+
+function post_roll() {
+    goal_post_roll();
 }
 
 function lock() {
@@ -34,14 +40,21 @@ function clear_locked_dice() {
 function create_die(die_data) {
     die = $('<div/>');
     die.addClass('die');
-    die.addClass('die_'+die_data);
-    die.html(die_data);
-    die.click(toggle_unlocked_die);
+    // If you send a 0, die will not be lockable or have any value
+    if (die_data) {
+        die.addClass('die_'+die_data);
+        die.html(die_data);
+        die.click(toggle_unlocked_die);
+    }
+    else {
+        die.html('&nbsp;');
+    }
     return die;
 }
 
 function add_die(die) {
     $('#dice_unlocked').append(die);
+    post_roll();
 }
 
 function add_dice(dice) {

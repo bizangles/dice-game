@@ -1,5 +1,5 @@
-function action(type) {
-    this.type = type;
+function action(name) {
+    this.name = name;
 }
 
 function not_defined() {
