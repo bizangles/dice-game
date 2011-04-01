@@ -42,10 +42,10 @@ function clear_locked_dice() {
 function create_die(die_data) {
     die = $('<div/>');
     die.addClass('die');
-    // If you send a 0, die will not be lockable or have any value
+    // If a 0 is sent, die will not be lockable or have any value
     if (die_data) {
         die.addClass('die_'+die_data);
-        die.html(die_data);
+        die.attr('die_number', die_data);
         die.click(toggle_unlocked_die);
     }
     return die;
@@ -68,8 +68,8 @@ function toggle_unlocked_die() {
 
 function get_all_dice() {
     dice = [];
-    $('#dice_locked .die, #dice_unlocked .die').each(function() {
-        dice.push($(this).html());
+    $('#dice_locked .die, #dice_unlocked .die[die_number]').each(function() {
+        dice.push($(this).attr('die_number'));
     });
     return dice;
 }

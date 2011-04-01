@@ -1,0 +1,116 @@
+/* General page layout */
+
+body {
+    background-color: #ddf;
+}
+
+#body {
+	margin: 0 auto;
+	width: 960px;
+}
+
+.game_section {
+	margin-bottom: 10px;
+	text-align: center;
+    background-color: white;
+}
+
+.game_section .game_section_label {
+    height: 30px;
+    line-height: 30px;
+}
+
+.game_section .game_section_contents {
+}
+
+/* Dice */
+
+.die {
+	width: 52px;
+	height: 52px;
+
+    display: inline-block;
+
+	cursor: pointer;
+
+	margin-right: 2px;
+
+    background-image: url('/site_media/img/die0.png');
+    background-repeat: no-repeat;
+    background-position: 1 1;
+
+    border: 1px solid transparent;
+}
+
+.die_1 { background-image: url('/site_media/img/die1.png'); }
+.die_2 { background-image: url('/site_media/img/die2.png'); }
+.die_3 { background-image: url('/site_media/img/die3.png'); }
+.die_4 { background-image: url('/site_media/img/die4.png'); }
+.die_5 { background-image: url('/site_media/img/die5.png'); }
+.die_6 { background-image: url('/site_media/img/die6.png'); }
+
+.die_locked {
+    border-color: #400;
+    background-color: #fdd;
+}
+
+/* Buttons */
+
+.button {
+	margin: 0 auto;
+	width: 200px;
+	height: 40px;
+	border: 1px solid black;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 2px;
+	cursor: pointer;
+	margin-bottom: 4px;
+}
+
+.button_hover {
+	background-color: #f3f3f3;
+}
+
+/* Lists */
+
+#actions .action,
+#goals .goal {
+    border: 1px solid black;
+    margin-bottom: 2px;
+}
+
+.action .goal_name, .action .action_name,
+.goal .goal_name, .goal .action_name {
+    float: left;
+    padding: 0 2px;
+}
+
+.action .goal_name,
+.goal .goal_name {
+    border-right: 1px solid gray;
+}
+
+.clear {
+    clear: both;
+}
+
+#actions .action_used {
+    background-color: #ffdddd;
+}
+
+#goals .purchasable {
+    background-color: #ddffdd;
+}
+
+#actions .action {
+    display: none;
+}
+
+#actions .purchased {
+    display: block;
+}
+
+#goals .purchased {
+    display: none;
+}
