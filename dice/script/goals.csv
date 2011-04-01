@@ -1,0 +1,4 @@
+pair,goal/pair.js,add_die
+3_ofakind,goal/3_ofakind.js,add_unlocked_1
+small_straight,goal/small_straight.js,add_unlocked_2
+tiny_straight,goal/tiny_straight.js,add_unlocked_3
