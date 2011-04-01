@@ -1,1 +1,9 @@
 Dice Game
+
+To create your database with the goals/actions from the repository
+
+1) Initialize your database:
+    python manage.py syncdb
+
+2) import data (this will wipe the game_action and game_goal tables):
+    python script/import_data.py
