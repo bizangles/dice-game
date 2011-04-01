@@ -55,16 +55,19 @@
     margin-bottom: 4px;
 }
 
-.goal_container .goal {
+#actions .action,
+#goals .goal {
     border: 1px solid black;
     margin-bottom: 2px;
 }
 
-.goal .goal_name, .goal .goal_action {
+.action .goal_name, .action .action_name,
+.goal .goal_name, .goal .action_name {
     float: left;
     padding: 0 2px;
 }
 
+.action .goal_name,
 .goal .goal_name {
     border-right: 1px solid gray;
 }
@@ -73,10 +76,22 @@
     clear: both;
 }
 
-.goal_container .action_used {
+#actions .action_used {
     background-color: #ffdddd;
 }
 
 .goal_container .purchasable {
     background-color: #ddffdd;
+}
+
+#actions .action {
+    display: none;
+}
+
+#actions .purchased {
+    display: block;
+}
+
+#goals .purchased {
+    display: none;
 }

@@ -1,19 +1,21 @@
 function roll() {
     num = $('#dice_unlocked .die').size();
 
-    url = '/game/'+game_guid+'/roll/'
-    if (num) { url += num+'/'; }
-    else { next_round(); }
+    if (num) {
+        url = '/game/'+game_guid+'/roll/'+num+'/';
 
-    $.getJSON(url, function(data) {
-        clear_unlocked_dice();
-        $.each(data['dice'], function(i, die_data) {
-            die = create_die(die_data);
-            add_die(die);
+        $.getJSON(url, function(data) {
+            clear_unlocked_dice();
+            $.each(data['dice'], function(i, die_data) {
+                die = create_die(die_data);
+                add_die(die);
+            });
         });
-    });
-
-    post_roll();
+        post_roll();
+    }
+    else {
+        next_round();
+    }
 }
 
 function post_roll() {
@@ -46,9 +48,6 @@ function create_die(die_data) {
         die.html(die_data);
         die.click(toggle_unlocked_die);
     }
-    else {
-        die.html('&nbsp;');
-    }
     return die;
 }
 
@@ -78,4 +77,5 @@ function get_all_dice() {
 function reset_dice() {
     clear_unlocked_dice();
     clear_locked_dice();
+    add_dice([0,0,0]);
 }

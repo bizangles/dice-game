@@ -15,15 +15,15 @@ goals = {};
 {% for goal in goals %}
     {% include goal.template %}
     goal_{{goal.name}}.action = action_{{ goal.action.name }}
-    goals['{{goal.name}}'] = goal_{{goal.name}};
+    goals['goal_{{goal.name}}'] = goal_{{goal.name}};
 {% endfor %}
 
 function purchase_goal() {
     var goal_div = this;
     var dice = get_all_dice();
     if (goals[goal_div.id].is_purchasable(dice)) {
-        $(goal_div).removeClass('purchasable');
-        $(goal_div).appendTo('#actions_container').unbind('click').click(perform_action);
+        $(goal_div).removeClass('purchasable').addClass('purchased');
+        $('#action_'+goals[goal_div.id].action.name).addClass('purchased');
         next_round();
     }
 }
@@ -37,4 +37,8 @@ function goal_post_roll() {
             $(goal_div).removeClass('purchasable');
         }
     });
+}
+
+function clear_goals() {
+    $('#goals .goal').removeClass('purchased');
 }

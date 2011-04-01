@@ -9,18 +9,25 @@ function not_defined() {
 
 action.do_action = not_defined;
 
+actions = {}
+
 {% for action in actions %}
     {% include action.template %}
+    actions['action_{{action.name}}'] = action_{{action.name}};
 {% endfor %}
 
 function perform_action() {
     var action_div = this;
     if (!$(action_div).hasClass('action_used')) {
-        goals[action_div.id].action.do_action();
+        actions[action_div.id].do_action();
         $(action_div).addClass('action_used');
     }
 }
 
 function reset_actions() {
-    $('#actions_container .goal').removeClass('action_used');
+    $('#actions .action').removeClass('action_used');
+}
+
+function clear_actions() {
+    $('#actions .action').removeClass('action_used purchased');
 }

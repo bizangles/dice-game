@@ -32,17 +32,29 @@
             </div>
             <div id='actions_container' class='goal_container'>
                 <span>Actions</span>
+                <div id='actions'>
+                    {% for goal in goals %}
+                        <div id='action_{{ goal.action.name }}' class='action'>
+                            <div class='goal_name'>{{goal.name}}</div>
+                            <div class='action_name'>{{goal.action.name}}</div>
+                            <div class='clear'></div>
+                        </div>
+                        <script>$('#action_{{ goal.action.name }}').click(perform_action)</script>
+                    {% endfor %}
+                </div>
             </div>
             <div id='goals_container' class='goal_container'>
                 <span>Goals</span>
-                {% for goal in goals %}
-                    <div id='{{ goal.name }}' class='goal'>
-                        <div class='goal_name'>{{goal.name}}</div>
-                        <div class='goal_action'>{{goal.action.name}}</div>
-                        <div class='clear'></div>
-                    </div>
-                    <script>$('#{{ goal.name }}').click(purchase_goal)</script>
-                {% endfor %}
+                <div id='goals'>
+                    {% for goal in goals %}
+                        <div id='goal_{{ goal.name }}' class='goal'>
+                            <div class='goal_name'>{{goal.name}}</div>
+                            <div class='action_name'>{{goal.action.name}}</div>
+                            <div class='clear'></div>
+                        </div>
+                        <script>$('#goal_{{ goal.name }}').click(purchase_goal)</script>
+                    {% endfor %}
+                </div>
             </div>
 			<div id='key'></div>
 		</div>

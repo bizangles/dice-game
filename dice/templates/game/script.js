@@ -8,11 +8,15 @@ function start_game() {
             game_guid = guid;
         }
     });
+    clear_actions();
+    clear_goals();
+    next_round();
 }
 
 function next_round() {
     reset_actions();
     reset_dice();
+    post_roll();
 }
 
 {% include 'game/keys.js' %}
