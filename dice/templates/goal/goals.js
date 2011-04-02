@@ -29,7 +29,7 @@ function purchase_goal() {
 }
 
 function goal_post_roll() {
-    $('#goals_container .goal').each(function(i, goal_div) {
+    $('#goals .goal').each(function(i, goal_div) {
         if (goals[goal_div.id].is_purchasable(get_all_dice())) {
             $(goal_div).addClass('purchasable');
         }
