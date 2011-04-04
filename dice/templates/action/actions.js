@@ -9,6 +9,14 @@ function not_defined() {
 
 action.do_action = not_defined;
 
+action.post_action = function() {
+    turn_event({
+        'type': 'action',
+        'id': this.name,
+        'data': this.last_use_data,
+    });
+}
+
 actions = {}
 
 {% for action in actions %}
@@ -19,7 +27,8 @@ actions = {}
 function perform_action() {
     var action_div = this;
     if (!$(action_div).hasClass('action_used')) {
-        actions[action_div.id].do_action();
+        action_result = actions[action_div.id].do_action();
+//        actions[action_div.id].post_action();
         $(action_div).addClass('action_used');
     }
 }
