@@ -1,22 +1,34 @@
-function goal_ofakind(tuple) {
+function goal_ofakind(tuples) {
     this.inheritFrom = goal;
     this.inheritFrom();
 
-    this.tuple = tuple;
+    if (typeof(tuples) == 'number') {
+        this.tuples = [tuples];
+    }
+    else {
+        this.tuples = tuples.sort(function(a,b) { return b-a; });
+    }
 }
 
 goal_ofakind.prototype.is_purchasable = function(dice) {
     var this_goal = this;
-    var purchasable = false;
     var counts = {1:0,2:0,3:0,4:0,5:0,6:0};
     $.each(dice, function(i, die) {
         if (die) {
             counts[die]++;
-            if (counts[die] >= this_goal.tuple) {
-                purchasable = true;
-                return false;
-            }
         }
     });
+    var purchasable = true;
+    $.each(this_goal.tuples, function(i, tuple) {
+        for (var die in counts) {
+            if (counts[die] >= tuple) {
+                counts[die] -= tuple;
+                return true;
+            }
+        }
+        purchasable = false;
+        return false;
+    });
+
     return purchasable;
 }
