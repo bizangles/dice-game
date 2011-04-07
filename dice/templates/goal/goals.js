@@ -10,7 +10,8 @@ function not_defined() {
 goal.prototype.is_purchasable = not_defined;
 goals = {};
 
-{% include 'goal/ofakind.js' %}
+{% include 'goal/ofakind_prototype.js' %}
+{% include 'goal/straight_prototype.js' %}
 
 {% for goal in goals %}
     {% include goal.template %}

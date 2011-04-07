@@ -42,6 +42,7 @@ class Roll(models.Model):
 class Goal(models.Model):
     name = models.CharField(max_length=50)
     template = models.CharField(max_length=50)
+    js_args = models.CharField(max_length=100, null=True, blank=True)
     action = models.OneToOneField('Action', null=True, blank=True)
 
     def __unicode__(self):
