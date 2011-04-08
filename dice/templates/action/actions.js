@@ -26,7 +26,7 @@ actions = {}
 
 function perform_action() {
     var action_div = this;
-    if (!$(action_div).hasClass('action_used')) {
+    if ($(action_div).hasClass('action_purchased') && !$(action_div).hasClass('action_used')) {
         action_result = actions[action_div.id].do_action();
 //        actions[action_div.id].post_action();
         $(action_div).addClass('action_used');
@@ -34,9 +34,9 @@ function perform_action() {
 }
 
 function reset_actions() {
-    $('#actions .action').removeClass('action_used');
+    $('.goal .action').removeClass('action_used');
 }
 
 function clear_actions() {
-    $('#actions .action').removeClass('action_used purchased');
+    $('.goal .action').removeClass('action_used action_purchased');
 }

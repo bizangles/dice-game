@@ -10,7 +10,7 @@ def play(request):
     })
 
 def script(request):
-    goals = models.Goal.objects.all();
+    goals = models.Goal.objects.filter(action__isnull=False);
     actions = []
     for goal in goals:
         actions.append(goal.action)

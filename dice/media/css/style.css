@@ -23,6 +23,8 @@ body {
 .game_section .game_section_contents {
 }
 
+.clear { clear: both; }
+
 /* Dice */
 
 .die {
@@ -74,43 +76,25 @@ body {
 
 /* Lists */
 
-#actions .action,
-#goals .goal {
-    border: 1px solid black;
-    margin-bottom: 2px;
-}
-
-.action .goal_name, .action .action_name,
-.goal .goal_name, .goal .action_name {
+.game_section_contents .goal_box {
+    width: 220px;
+    margin: 10px 10px;
     float: left;
-    padding: 0 2px;
 }
 
-.action .goal_name,
-.goal .goal_name {
-    border-right: 1px solid gray;
+.goal_box .goal {
+    border: 1px solid black;
 }
 
-.clear {
-    clear: both;
-}
+.goal_box .goal_purchasable { background-color: #ddffdd; }
+.goal_box .goal_purchased { background-color: #888; }
 
-#actions .action_used {
-    background-color: #ffdddd;
+.goal_box .action {
+    border: 1px solid black;
+    background-color: #888;
+    margin: 4px;
 }
+.goal_box .action_purchased { background-color: white; }
+.goal_box .action_used { background-color: #ffdddd; }
 
-#goals .purchasable {
-    background-color: #ddffdd;
-}
 
-#actions .action {
-    display: none;
-}
-
-#actions .purchased {
-    display: block;
-}
-
-#goals .purchased {
-    display: none;
-}

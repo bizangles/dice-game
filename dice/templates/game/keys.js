@@ -32,11 +32,11 @@ $(document).keydown(function(e) {
             $('#dice_unlocked .die').eq(num-1).click();
         }
         else if (nummode == 'actions') {
-            $('#actions .purchased').eq(num-1).click();
+            $('.goal_box .action').eq(num-1).click();
             nummode = 'dice';
         }
         else if (nummode == 'goals') {
-            $('#goals .goal:not(.purchased)').eq(num-1).click();
+            $('.goal_box .goal').eq(num-1).click();
             nummode = 'dice';
         }
 	}

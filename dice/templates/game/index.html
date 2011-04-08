@@ -31,29 +31,23 @@
 				<div id='dice_unlocked' class='game_section_contents'></div>
             </div>
             <div class='game_section'>
-                <div class='game_section_label'>Actions</div>
-                <div id='actions' class='game_section_contents'>
-                    {% for goal in goals %}
-                        <div id='action_{{ goal.action.name }}' class='action'>
-                            <div class='goal_name'>{{goal.name}}</div>
-                            <div class='action_name'>{{goal.action.name}}</div>
-                            <div class='clear'></div>
-                        </div>
-                        <script>$('#action_{{ goal.action.name }}').click(perform_action)</script>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class='game_section'>
-                <div class='game_section_label'>Goals</div>
+                <div class='game_section_label'>Goals/Actions</div>
                 <div id='goals' class='game_section_contents'>
                     {% for goal in goals %}
-                        <div id='goal_{{ goal.name }}' class='goal'>
-                            <div class='goal_name'>{{goal.name}}</div>
-                            <div class='action_name'>{{goal.action.name}}</div>
-                            <div class='clear'></div>
+                        <div class='goal_box'>
+                            <div id='goal_{{ goal.name }}' class='goal'>
+                                <div class='goal_name'>{{goal.name}}</div>
+                                <div class='clear'></div>
+                                <div id='action_{{ goal.action.name }}' class='action'>
+                                    <div class='action_name'>{{goal.action.name}}</div>
+                                    <div class='clear'></div>
+                                </div>
+                            </div>
+                            <script>$('#goal_{{ goal.name }}').click(purchase_goal)</script>
+                            <script>$('#action_{{ goal.action.name }}').click(perform_action)</script>
                         </div>
-                        <script>$('#goal_{{ goal.name }}').click(purchase_goal)</script>
                     {% endfor %}
+                    <div class='clear'></div>
                 </div>
             </div>
 			<div id='key'></div>
