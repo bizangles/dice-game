@@ -15,7 +15,10 @@ def dump_goals(file):
 
     for goal in models.Goal.objects.all():
         data = model_to_dict(goal)
-        data['action'] = goal.action.name
+        if (goal.action):
+            data['action'] = goal.action.name
+        else:
+            data['action'] = ''
         writer.writerow(data)
 
 #dump_actions(sys.stdout)

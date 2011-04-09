@@ -17,7 +17,10 @@ def import_goals():
     reader = csv.DictReader(open(dice_dump.GOAL_FILE, 'r'), dice_dump.GOAL_FIELDS)
 
     for row in reader:
-        row['action'] = models.Action.objects.get(name=row['action'])
+        if row['action']:
+            row['action'] = models.Action.objects.get(name=row['action'])
+        else:
+            row['action'] = None
         models.Goal.objects.create(**row)
 
 wipe_tables()

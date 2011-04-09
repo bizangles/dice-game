@@ -24,11 +24,17 @@
 			<div id='roll_button' class='button'>roll</div>
 			<div class='game_section'>
 				<div class='game_section_label'>Locked Dice</div>
-				<div id='dice_locked' class='game_section_contents'></div>
+                <div class='game_section_contents'>
+                    <div id='dice_locked' class='dice_box'>
+                    </div>
+                </div>
 			</div>
 			<div class='game_section'>
 				<div class='game_section_label'>Unlocked Dice</div>
-				<div id='dice_unlocked' class='game_section_contents'></div>
+                <div class='game_section_contents'>
+                    <div id='dice_unlocked' class='dice_box'>
+                    </div>
+                </div>
             </div>
             <div class='game_section'>
                 <div class='game_section_label'>Goals/Actions</div>
@@ -36,15 +42,15 @@
                     {% for goal in goals %}
                         <div class='goal_box'>
                             <div id='goal_{{ goal.name }}' class='goal'>
-                                <div class='goal_name'>{{goal.name}}</div>
-                                <div class='clear'></div>
+                                <div class='goal_detail'>
+                                    <div class='goal_name'>{{goal.name}}</div>
+                                </div>
                                 <div id='action_{{ goal.action.name }}' class='action'>
                                     <div class='action_name'>{{goal.action.name}}</div>
-                                    <div class='clear'></div>
                                 </div>
+                                <script>$('#goal_{{ goal.name }}').click(purchase_goal)</script>
+                                <script>$('#action_{{ goal.action.name }}').click(perform_action)</script>
                             </div>
-                            <script>$('#goal_{{ goal.name }}').click(purchase_goal)</script>
-                            <script>$('#action_{{ goal.action.name }}').click(perform_action)</script>
                         </div>
                     {% endfor %}
                     <div class='clear'></div>

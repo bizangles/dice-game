@@ -19,9 +19,11 @@ action.post_action = function() {
 
 actions = {}
 
-{% for action in actions %}
-    {% include action.template %}
-    actions['action_{{action.name}}'] = action_{{action.name}};
+{% for goal in goals %}
+    {% with goal.action as action %}
+        {% include action.template %}
+        actions['action_{{action.name}}'] = action_{{action.name}};
+    {% endwith %}
 {% endfor %}
 
 function perform_action() {
@@ -34,9 +36,9 @@ function perform_action() {
 }
 
 function reset_actions() {
-    $('.goal .action').removeClass('action_used');
+    $('.goal_box .action').removeClass('action_used');
 }
 
 function clear_actions() {
-    $('.goal .action').removeClass('action_used action_purchased');
+    $('.goal_box .action').removeClass('action_used action_purchased');
 }

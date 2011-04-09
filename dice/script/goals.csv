@@ -5,3 +5,8 @@ tiny_straight,goal/straight.js,4,add_unlocked_3
 4_ofakind,goal/ofakind.js,4,add_unlocked_4
 5_ofakind,goal/ofakind.js,5,add_unlocked_5
 6_ofakind,goal/ofakind.js,6,add_unlocked_6
+full_house,goal/ofakind.js,"[3,2]",
+two_pairs,goal/ofakind.js,"[2,2]",
+three_pairs,goal/ofakind.js,"[2,2,2]",
+two_triples,goal/ofakind.js,"[3,3]",
+fuller_house,goal/ofakind.js,"[4,3]",

@@ -27,6 +27,10 @@ body {
 
 /* Dice */
 
+.game_section_contents .dice_box {
+    height: 60px;
+}
+
 .die {
 	width: 52px;
 	height: 52px;
@@ -86,14 +90,20 @@ body {
     border: 1px solid black;
 }
 
+.goal .goal_detail {
+    height: 50px;
+}
+
 .goal_box .goal_purchasable { background-color: #ddffdd; }
 .goal_box .goal_purchased { background-color: #888; }
 
 .goal_box .action {
     border: 1px solid black;
     background-color: #888;
-    margin: 4px;
+    margin: 8px;
+    height: 50px;
 }
+
 .goal_box .action_purchased { background-color: white; }
 .goal_box .action_used { background-color: #ffdddd; }
 
