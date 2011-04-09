@@ -23,21 +23,20 @@
 			<div id='game_button' class='button'>new game</div>
 			<div id='roll_button' class='button'>roll</div>
 			<div class='game_section'>
-				<div class='game_section_label'>Locked Dice</div>
+                <div class='game_section_header'>
+                    <div class='game_section_label'>Dice</div>
+                </div>
                 <div class='game_section_contents'>
                     <div id='dice_locked' class='dice_box'>
                     </div>
-                </div>
-			</div>
-			<div class='game_section'>
-				<div class='game_section_label'>Unlocked Dice</div>
-                <div class='game_section_contents'>
                     <div id='dice_unlocked' class='dice_box'>
                     </div>
                 </div>
-            </div>
+			</div>
             <div class='game_section'>
-                <div class='game_section_label'>Goals/Actions</div>
+                <div class='game_section_header'>
+                    <div class='game_section_label'>Goals/Actions</div>
+                </div>
                 <div id='goals' class='game_section_contents'>
                     {% for goal in goals %}
                         <div class='goal_box'>
