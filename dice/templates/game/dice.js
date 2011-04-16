@@ -1,7 +1,11 @@
 function roll() {
     num = $('#dice_unlocked .die').size();
+    numLocked = $('#dice_unlocked .die_locked, #dice_unlocked .die_unrolled').size();
+    numRolled = $('#dice_unlocked :not(.die_unrolled)').size();
 
-    if (num) {
+    if (numRolled > 0 && numLocked <= 0) {
+        // TODO - alert of some sort?
+    } else if (num) {
         url = '/game/'+game_guid+'/roll/'+num+'/';
 
         $.getJSON(url, function(data) {
@@ -47,6 +51,8 @@ function create_die(die_data) {
         die.addClass('die_'+die_data);
         die.attr('die_number', die_data);
         die.click(toggle_unlocked_die);
+    } else {
+        die.addClass('die_unrolled');
     }
     return die;
 }
