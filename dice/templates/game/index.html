@@ -6,9 +6,10 @@
 		<script type='text/javascript'>
 			$(function() {
 				$('.button').hover(function() {
-					$(this).addClass('button_hover');
+                    if (!$(this).hasClass('button_disabled'))
+                        $(this).addClass('button_hover');
 				}, function() {
-					$(this).removeClass('button_hover');
+                    $(this).removeClass('button_hover');
 				});
                 $('#game_button').click(start_game);
                 $('#roll_button').click(lock_and_roll);

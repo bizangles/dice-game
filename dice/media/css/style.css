@@ -88,10 +88,15 @@ body {
 	border-radius: 2px;
 	cursor: pointer;
 	margin-bottom: 4px;
+    background-color: #99c;
+}
+
+.button_disabled {
+	background-color: #ddf;
 }
 
 .button_hover {
-	background-color: #f3f3f3;
+	background-color: #99f;
 }
 
 /* Lists */

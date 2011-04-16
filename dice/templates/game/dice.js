@@ -1,11 +1,8 @@
 function roll() {
     num = $('#dice_unlocked .die').size();
-    numLocked = $('#dice_unlocked .die_locked, #dice_unlocked .die_unrolled').size();
-    numRolled = $('#dice_unlocked :not(.die_unrolled)').size();
 
-    if (numRolled > 0 && numLocked <= 0) {
-        // TODO - alert of some sort?
-    } else if (num) {
+    if (num) {
+        // Do the roll
         url = '/game/'+game_guid+'/roll/'+num+'/';
 
         $.getJSON(url, function(data) {
@@ -16,6 +13,8 @@ function roll() {
             });
         });
         post_roll();
+
+        update_roll_button();
     }
     else {
         next_round();
@@ -26,13 +25,36 @@ function post_roll() {
     goal_post_roll();
 }
 
+function roll_is_allowed() {
+    num = $('#dice_unlocked .die').size();
+    numLocked = $('#dice_unlocked .die_locked').size();
+    numRolled = $('#dice_unlocked :not(.die_unrolled)').size();
+
+    return (num > 0 && (numRolled == 0 || numLocked > 0));
+}
+
 function lock() {
     $('.die_locked').appendTo('#dice_locked').unbind('click');
+
+    update_roll_button();
+}
+
+function update_roll_button() {
+    if (roll_is_allowed()) {
+        $('#roll_button').removeClass('button_disabled');
+    } else {
+        $('#roll_button').addClass('button_disabled');
+        $('#roll_button').removeClass('button_hover');
+    }
 }
 
 function lock_and_roll() {
-    lock();
-    roll();
+    if (roll_is_allowed()) {
+        lock();
+        roll();
+    } else {
+        // TODO - alert of some sort?
+    }
 }
 
 function clear_unlocked_dice() {
@@ -60,16 +82,19 @@ function create_die(die_data) {
 function add_die(die) {
     $('#dice_unlocked').append(die);
     post_roll();
+    update_roll_button();
 }
 
 function add_dice(dice) {
     $.each(dice, function(i, die) {
         add_die(create_die(die));
     });
+    update_roll_button();
 }
 
 function toggle_unlocked_die() {
     $(this).toggleClass('die_locked');
+    update_roll_button();
 }
 
 function get_all_dice() {
@@ -84,4 +109,5 @@ function reset_dice() {
     clear_unlocked_dice();
     clear_locked_dice();
     add_dice([0,0,0]);
+    update_roll_button();
 }
