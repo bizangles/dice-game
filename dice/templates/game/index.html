@@ -1,28 +1,30 @@
 <html>
-	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-		<script type='text/javascript' src="/game/script.js"></script>
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+        <script type='text/javascript' src="/game/script.js"></script>
 
-		<script type='text/javascript'>
-			$(function() {
-				$('.button').hover(function() {
-					$(this).addClass('button_hover');
-				}, function() {
-					$(this).removeClass('button_hover');
-				});
+        <script type='text/javascript'>
+            $(function() {
+                $('.button').hover(function() {
+                    $(this).addClass('button_hover');
+                }, function() {
+                    $(this).removeClass('button_hover');
+                });
                 $('#game_button').click(start_game);
                 $('#roll_button').click(lock_and_roll);
-			});
-		</script>
+            });
+        </script>
 
-		<link rel="stylesheet" type="text/css" href="/site_media/css/style.css" />
-		<title>Dice</title>
-	</head>
-	<body>
-		<div id='body'>
-			<div id='game_button' class='button'>new game</div>
-			<div id='roll_button' class='button'>roll</div>
-			<div class='game_section'>
+        <link rel="stylesheet" type="text/css" href="/site_media/css/style.css" />
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" />
+        <title>Dice</title>
+    </head>
+    <body>
+        <div id='body'>
+            <div id='game_button' class='button'>new game</div>
+            <div id='roll_button' class='button'>roll</div>
+            <div class='game_section'>
                 <div class='game_section_header'>
                     <div class='game_section_label'>Dice</div>
                 </div>
@@ -32,7 +34,7 @@
                     <div id='dice_unlocked' class='dice_box'>
                     </div>
                 </div>
-			</div>
+            </div>
             <div class='game_section'>
                 <div class='game_section_header'>
                     <div class='game_section_label'>Goals/Actions</div>
@@ -55,7 +57,12 @@
                     <div class='clear'></div>
                 </div>
             </div>
-			<div id='key'></div>
-		</div>
-	</body>
+            <div id='key'></div>
+        </div>
+        {% for action in actions %}
+            {% if action.dialog %}
+                {% include action.dialog %}
+            {% endif %}
+        {% endfor %}
+    </body>
 </html>

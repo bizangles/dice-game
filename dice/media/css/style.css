@@ -43,7 +43,7 @@ body {
 /* Dice */
 
 .game_section_contents .dice_box {
-    height: 60px;
+    height: 56px;
 }
 
 .die {
@@ -54,7 +54,7 @@ body {
 
 	cursor: pointer;
 
-	margin: 2px;
+	margin: 1px;
     padding: 1px;
 
     background-image: url('/site_media/img/die0.png');
@@ -123,4 +123,4 @@ body {
 .goal_box .action_purchased { background-color: white; }
 .goal_box .action_used { background-color: #ffdddd; }
 
-
+.action-dialog { display: none; }

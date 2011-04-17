@@ -14,5 +14,5 @@ from dice import settings
 
 setup_environ(settings)
 
-ACTION_FIELDS = ['name', 'template']
+ACTION_FIELDS = ['name', 'template', 'dialog']
 GOAL_FIELDS = ['name', 'template', 'js_args', 'action']

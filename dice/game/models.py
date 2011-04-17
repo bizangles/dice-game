@@ -52,6 +52,7 @@ class Goal(models.Model):
 class Action(models.Model):
     name = models.CharField(max_length=50)
     template = models.CharField(max_length=50)
+    dialog = models.CharField(max_length=50, null=True, blank=True)
 
     def __unicode__(self):
         return "%s" % self.name

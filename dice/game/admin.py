@@ -16,8 +16,8 @@ class GoalAdmin(admin.ModelAdmin):
 
 
 class ActionAdmin(admin.ModelAdmin):
-    list_display = ('__unicode__', 'name', 'template')
-    list_editable = ('name', 'template')
+    list_display = ('__unicode__', 'name', 'template', 'dialog')
+    list_editable = ('name', 'template', 'dialog')
 
 
 admin.site.register(models.Game, GameAdmin)

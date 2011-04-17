@@ -1,7 +1,7 @@
-add_die,action/add_die.js
-add_unlocked_1,action/add_unlocked_1.js
-add_unlocked_2,action/add_unlocked_2.js
-add_unlocked_3,action/add_unlocked_3.js
-add_unlocked_4,action/add_unlocked_4.js
-add_unlocked_5,action/add_unlocked_5.js
-add_unlocked_6,action/add_unlocked_6.js
+add_die,action/add_die.js,action/add_die.html
+add_unlocked_1,action/add_unlocked_1.js,
+add_unlocked_2,action/add_unlocked_2.js,
+add_unlocked_3,action/add_unlocked_3.js,
+add_unlocked_4,action/add_unlocked_4.js,
+add_unlocked_5,action/add_unlocked_5.js,
+add_unlocked_6,action/add_unlocked_6.js,

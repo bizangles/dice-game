@@ -3,18 +3,22 @@ from django.shortcuts import render_to_response
 
 from dice.game import models
 
-def play(request):
-    goals = models.Goal.objects.filter(action__isnull=False);
-    return render_to_response('game/index.html', {
-        'goals': goals,
-    })
-
-def script(request):
+def get_goals_and_actions():
     goals = models.Goal.objects.filter(action__isnull=False);
     actions = []
     for goal in goals:
         actions.append(goal.action)
+    return goals, actions
 
+def play(request):
+    goals, actions = get_goals_and_actions()
+    return render_to_response('game/index.html', {
+        'goals': goals,
+        'actions': actions,
+    })
+
+def script(request):
+    goals, actions = get_goals_and_actions()
     return render_to_response('game/script.js', {
             'goals': goals,
             'actions': actions,
