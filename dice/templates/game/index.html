@@ -7,7 +7,8 @@
         <script type='text/javascript'>
             $(function() {
                 $('.button').hover(function() {
-                    $(this).addClass('button_hover');
+                    if (!$(this).hasClass('button_disabled'))
+                        $(this).addClass('button_hover');
                 }, function() {
                     $(this).removeClass('button_hover');
                 });
