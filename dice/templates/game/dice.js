@@ -12,16 +12,14 @@ function roll() {
                 add_die(die);
             });
         });
-        post_roll();
-
-        update_roll_button();
     }
     else {
         next_round();
     }
 }
 
-function post_roll() {
+function dice_updated() {
+    update_roll_button();
     goal_post_roll();
 }
 
@@ -35,8 +33,7 @@ function roll_is_allowed() {
 
 function lock() {
     $('.die_locked').appendTo('#dice_locked').unbind('click');
-
-    update_roll_button();
+    dice_updated();
 }
 
 function update_roll_button() {
@@ -81,20 +78,18 @@ function create_die(die_data) {
 
 function add_die(die) {
     $('#dice_unlocked').append(die);
-    post_roll();
-    update_roll_button();
+    dice_updated();
 }
 
 function add_dice(dice) {
     $.each(dice, function(i, die) {
         add_die(create_die(die));
     });
-    update_roll_button();
 }
 
 function toggle_unlocked_die() {
     $(this).toggleClass('die_locked');
-    update_roll_button();
+    dice_updated();
 }
 
 function get_all_dice() {
@@ -109,5 +104,4 @@ function reset_dice() {
     clear_unlocked_dice();
     clear_locked_dice();
     add_dice([0,0,0]);
-    update_roll_button();
 }
