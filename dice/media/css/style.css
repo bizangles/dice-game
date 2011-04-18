@@ -102,7 +102,7 @@ body {
 /* Lists */
 
 .game_section_contents .goal_box {
-    width: 225px;
+    width: 178px;
     margin: 5px 5px;
     float: left;
 }
@@ -127,5 +127,3 @@ body {
 
 .goal_box .action_purchased { background-color: white; }
 .goal_box .action_used { background-color: #ffdddd; }
-
-.action-dialog { display: none; }

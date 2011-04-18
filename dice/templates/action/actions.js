@@ -51,16 +51,5 @@ function clear_actions() {
 }
 
 function action_dialog(action_name) {
-    $('#action-' + action_name + '-dialog').dialog({
-        width: 400,
-        resizable: false,
-        draggable: false,
-        modal: true,
-        open: function(e, ui) {
-            set_keymode('dialog');
-        },
-        close: function(e, ui) {
-            reset_keymode();
-        },
-    });
+    $('#action-' + action_name + '-dialog').dialog('open');
 }

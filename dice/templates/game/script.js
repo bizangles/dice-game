@@ -16,7 +16,7 @@ function start_game() {
 function next_round() {
     reset_actions();
     reset_dice();
-    post_roll();
+    dice_updated();
 }
 
 {% include 'game/keys.js' %}

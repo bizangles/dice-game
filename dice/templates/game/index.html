@@ -1,7 +1,11 @@
 <html>
     <head>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.min.js"></script>
+        <script src="/site_media/js/jquery-1.5.1.js"></script>
+        <script src="/site_media/js/jquery-ui-1.8.11.custom.min.js"></script>
+{% comment %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.js"></script>
+{% endcomment %}
         <script type='text/javascript' src="/game/script.js"></script>
 
         <script type='text/javascript'>
@@ -63,6 +67,21 @@
         {% for action in actions %}
             {% if action.dialog %}
                 {% include action.dialog %}
+                <script type='text/javascript'>
+                    $(function() {
+                        $('#action-{{action.name}}-dialog').dialog({
+                            autoOpen: false,
+                            width: 400,
+                            modal: true,
+                            open: function(e, ui) {
+                                set_keymode('dialog-{{action.name}}');
+                            },
+                            close: function(e, ui) {
+                                reset_keymode();
+                            },
+                        });
+                    });
+                </script>
             {% endif %}
         {% endfor %}
     </body>
