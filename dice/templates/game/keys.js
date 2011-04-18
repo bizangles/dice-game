@@ -1,5 +1,6 @@
 var default_keymode = 'game';
-var keymode = default_keymode;
+$(function() { reset_keymode(); });
+
 var keymodes = {};
 
 function register_keys(modes, keys) {
@@ -15,31 +16,33 @@ function register_keys(modes, keys) {
 
 function perform_keypress(mode, keycode) {
     if (keymodes[mode]) {
-	    if (keymodes[mode]['num']
+        if (keymodes[mode]['num']
                 && keycode >= 48 && keycode <= 57) {
             var num = keycode - 48;
             if (num == 0) {
                 num += 10;
             }
-            keymodes[mode]['num'](num)
+            return keymodes[mode]['num'](num);
         }
         if (keymodes[mode][keycode]) {
-            keymodes[mode][keycode]();
+            return keymodes[mode][keycode]();
         }
     }
 }
 
 function set_keymode(mode) {
     keymode = mode;
+    $('#keymode').html(keymode);
 }
 
 function reset_keymode() {
-    keymode = default_keymode;
+    set_keymode(default_keymode);
 }
 
 register_keys(['game'], {
     32: function() {
         lock_and_roll();
+        return false;
     },
     num: function(num) {
         $('#dice_unlocked .die').eq(num-1).click();
@@ -62,7 +65,6 @@ $.each(goal_keys, function(i, goal_key) {
 register_keys(['game'], goal_key_hash)
 
 $(document).keydown(function(e) {
-    perform_keypress(keymode, e.keyCode);
-    perform_keypress('global', e.keyCode);
-	$('#key').html(e.keyCode + ' ' + keymode);
+    $('#key').html(e.keyCode);
+    return perform_keypress(keymode, e.keyCode);
 });

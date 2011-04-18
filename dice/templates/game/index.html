@@ -1,13 +1,8 @@
 <html>
     <head>
-        <script src="/site_media/js/jquery-1.5.1.js"></script>
-        <script src="/site_media/js/jquery-ui-1.8.11.custom.min.js"></script>
-{% comment %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/jquery-ui.js"></script>
-{% endcomment %}
         <script type='text/javascript' src="/game/script.js"></script>
-
         <script type='text/javascript'>
             $(function() {
                 $('.button').hover(function() {
@@ -22,7 +17,8 @@
         </script>
 
         <link rel="stylesheet" type="text/css" href="/site_media/css/style.css" />
-        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.7.0/themes/base/jquery-ui.css" />
+        <link rel="stylesheet" type="text/css" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.11/themes/base/jquery-ui.css" />
+
         <title>Dice</title>
     </head>
     <body>
@@ -62,7 +58,8 @@
                     <div class='clear'></div>
                 </div>
             </div>
-            <div id='key'></div>
+            <div>Key: <span id='key'></span></div>
+            <div>Mode: <span id='keymode'></span></div>
         </div>
         {% for action in actions %}
             {% if action.dialog %}
